@@ -24,10 +24,15 @@ public class FileHelper {
 
         File file = new File();
         ArrayList lines  = file.File("Bicicletas.txt");
+        ArrayList<Bicicleta> bicis = new ArrayList<Bicicleta>();
+        
+        //Bicicleta nBici;
         //String[] bici = new String[4];
         for(Object line : lines){
-            //String[] bici = line.split("\\|");
             System.out.println(line);
+            String _line = String.valueOf(line);
+            String[] bici = _line.split("\\|");
+            bicis.add(new Bicicleta(bici[0], bici[1], bici[2], bici[3]));
         }
         
         /*File file = new File();
@@ -38,22 +43,20 @@ public class FileHelper {
             System.out.println(estacion);
         }*/
         
-        /*int reply = JOptionPane.showConfirmDialog(null, "Deseas ingresar una nueva bicicleta?", "Crear Bicicleta", JOptionPane.YES_NO_OPTION);
+        int reply = JOptionPane.showConfirmDialog(null, "Deseas ingresar una nueva bicicleta?", "Crear Bicicleta", JOptionPane.YES_NO_OPTION);
         if (reply == JOptionPane.YES_OPTION) {
             String codigo = JOptionPane.showInputDialog("Escribe el codigo de la bicicleta: ");
             String color = JOptionPane.showInputDialog("Escribe el color de la bicicleta: ");
             String tipoBicicleta = JOptionPane.showInputDialog("Escribe el tipo de la bicicleta: ");
             String estado = JOptionPane.showInputDialog("Escribe el estado de la bicicleta: ");
             
-            Bicicleta b = new Bicicleta(codigo, color, tipoBicicleta, estado);
-            bicicletas.add(b);
+            bicis.add(new Bicicleta(codigo, color, tipoBicicleta, estado));
        
             FileOutputStream fout = new FileOutputStream("Bicicletas.txt");
             
-            for(Object bici : bicicletas){
+            for(Object bici : bicis){
                 fout.write(bici.toString().getBytes());
                 fout.write('\n');
-                //System.out.println(bici);
             }
             
             /*for(Object bicicleta : bicicletas){
@@ -67,7 +70,7 @@ public class FileHelper {
             Person newP = new Person(Integer.parseInt(_age), nombre, ciudad);
             list.add(newP);
             JOptionPane.showMessageDialog(null, "Persona registrada con éxito!");*/
-        /*}*/
+        }
 
         
         
