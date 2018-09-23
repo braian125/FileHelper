@@ -1,0 +1,2 @@
+1  |  Amarilla  |  Ruta  |  Activa
+2 | Verde | TodoTerreno | Activa
